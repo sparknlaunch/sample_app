@@ -1,4 +1,5 @@
 SampleApp::Application.routes.draw do
+<<<<<<< HEAD
   get "static_pages/home"
   get "static_pages/help"
   get "static_pages/about"  
@@ -6,6 +7,14 @@ SampleApp::Application.routes.draw do
   get "users/new"
 
   root to: 'static_pages#home'
+=======
+   root to: 'static_pages#home'
+  
+    get "static_pages/home"
+    get "static_pages/help"
+    get "static_pages/about"  
+    get "static_pages/contact"    
+>>>>>>> filling-in-layout
 
   match '/signup',  to: 'users#new'
   match '/help',    to: 'static_pages#help'
@@ -17,6 +26,12 @@ SampleApp::Application.routes.draw do
 
   resources :users
 
+  
+  match '/help',    to: 'static_pages#help'
+  match '/about',   to: 'static_pages#about'
+  match '/contact', to: 'static_pages#contact'
+  match '/signup',  to: 'users#new'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
