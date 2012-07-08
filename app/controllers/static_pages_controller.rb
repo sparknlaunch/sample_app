@@ -7,14 +7,7 @@ class StaticPagesController < ApplicationController
 
   def about
   end
-<<<<<<< HEAD
-  
-  def contact
-  end  
-=======
 
   def contact
   end
-  
->>>>>>> filling-in-layout
 end
