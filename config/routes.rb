@@ -4,26 +4,23 @@ SampleApp::Application.routes.draw do
   get "static_pages/help"
   get "static_pages/about"  
   get "static_pages/contact"    
-  get "users/new"
 
   root to: 'static_pages#home'
 
-
-  match '/signup',  to: 'users#new'
-  match '/help',    to: 'static_pages#help'
+   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
 
-  
   resources :microposts
+
+  #We can get the REST-style URI to work by adding a single line to our routes file '
 
   resources :users
 
-  
-  match '/help',    to: 'static_pages#help'
-  match '/about',   to: 'static_pages#about'
-  match '/contact', to: 'static_pages#contact'
+  root to: 'static_pages#home'
+
   match '/signup',  to: 'users#new'
+
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
