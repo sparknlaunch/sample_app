@@ -16,10 +16,14 @@ SampleApp::Application.routes.draw do
   #We can get the REST-style URI to work by adding a single line to our routes file '
 
   resources :users
+    resources :sessions, only: [:new, :create, :destroy]
+
+  match '/signup',  to: 'users#new'
+  match '/signin',  to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
 
   root to: 'static_pages#home'
 
-  match '/signup',  to: 'users#new'
 
   
   # The priority is based upon order of creation:
