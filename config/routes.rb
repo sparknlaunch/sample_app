@@ -1,5 +1,11 @@
 SampleApp::Application.routes.draw do
 
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+
   get "static_pages/home"
   get "static_pages/help"
   get "static_pages/about"  
@@ -12,8 +18,9 @@ SampleApp::Application.routes.draw do
   match '/contact', to: 'static_pages#contact'
 
   resources :users
-  resources :sessions,   only: [:new, :create, :destroy]
-  resources :microposts, only: [:create, :destroy]
+  resources :sessions,      only: [:new, :create, :destroy]
+  resources :microposts,    only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
 
   #We can get the REST-style URI to work by adding a single line to our routes file '
 

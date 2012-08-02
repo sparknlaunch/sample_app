@@ -16,8 +16,12 @@ describe User do
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
-
   it { should be_valid }
+
+
+  it { should respond_to(:feed) }
+  it { should respond_to(:relationships) }
+
 
   describe "when password is not present" do
     before { @user.password = @user.password_confirmation = " " }
