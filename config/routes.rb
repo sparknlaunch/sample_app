@@ -11,7 +11,9 @@ SampleApp::Application.routes.draw do
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
 
-  resources :microposts
+  resources :users
+  resources :sessions,   only: [:new, :create, :destroy]
+  resources :microposts, only: [:create, :destroy]
 
   #We can get the REST-style URI to work by adding a single line to our routes file '
 
